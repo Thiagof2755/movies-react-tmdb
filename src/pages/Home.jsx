@@ -30,6 +30,17 @@ const MoviesContainer = styled.div`
   }
 `;
 
+const Title = styled.h2`
+@media (max-width: 768px) {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: left;
+  margin-left: 2rem;
+
+  font-size: 1rem;
+  
+}
+`;
 
 
 const movieURL = import.meta.env.VITE_API;
@@ -64,7 +75,7 @@ const Home = () => {
 
   return (
     <Container>
-      <h2 className="popular-movies">Filmes Populares</h2>
+      <Title>Filmes Populares</Title>
       <MoviesContainer>
         {popularMovies.length > 0 &&
           popularMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}

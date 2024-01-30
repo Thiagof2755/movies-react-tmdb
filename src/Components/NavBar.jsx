@@ -1,30 +1,25 @@
 import React from 'react';
-import { Link , Outlet} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from './Logo';
 import Search from './Search';
 
 const Nav = styled.nav`
-    background-color: rgb(3, 37, 65);
-    height: 80px
+    background: linear-gradient(to bottom, rgb(3, 37, 65), transparent 80%);
+    padding: 10px 0; /* Adicionado um preenchimento para espaçamento interno */
 `;
 
 const Navbar = styled.div`
     margin: 0 auto;
     max-width: 1200px;
     width: 100%;
-
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 0;
 
     @media (max-width: 768px) {
-        margin: 0 auto;
-        max-width: 390px;
-        width: 100%; 
-        box-sizing: border-box
+        flex-direction: column; /* Alterado para coluna em telas menores */
+        align-items: center;
     }
 `;
 
@@ -34,15 +29,20 @@ const Options = styled.div`
     gap: 1rem;
 
     @media (max-width: 768px) {
-        
+        margin-top: 10px; /* Adicionado um espaçamento superior para telas menores */
     }
 `;
 
 const LinkStyled = styled(Link)`
+    align-items: left;
     font-size: 1rem;
     font-weight: bold;
+    color: #fff; /* Adicionado cor para garantir visibilidade */
+    
+
     @media (max-width: 768px) {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
     }
 `;
 
@@ -50,17 +50,16 @@ const NavBar = () => {
     return (
         <Nav>
             <Navbar>
+                <LinkStyled to="/">
+                    <Logo />
+                </LinkStyled>
                 <Options>
-                    <LinkStyled to="/">
-                        <Logo />
-                    </LinkStyled>
                     <LinkStyled to="/movie/1">Movie</LinkStyled>
                     <LinkStyled to="/series/1">Series</LinkStyled>
                 </Options>
-                <Search />  
+                <Search />
             </Navbar>
         </Nav>
-        
     );
 };
 
