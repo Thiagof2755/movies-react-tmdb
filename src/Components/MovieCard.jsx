@@ -14,7 +14,7 @@ const Card = styled.div`
 
     @media (max-width: 600px) {
         width: 140px;  /* Ajuste o tamanho desejado para telas de telefone */
-        margin: 10px 5px;
+        margin: 10px auto;
     }
 
     &:hover {

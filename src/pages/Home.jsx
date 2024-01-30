@@ -16,6 +16,7 @@ const Container = styled.div`
       max-width: 390px;
       width: 100%; 
       box-sizing: border-box
+      justify-content: center;
   }
 `;
 
@@ -27,6 +28,7 @@ const MoviesContainer = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
   }
 `;
 
