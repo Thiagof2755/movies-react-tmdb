@@ -1,7 +1,6 @@
-import React, {  useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import MovieCard from '../Components/MovieCard'; // Add missing import statement
 import styled from 'styled-components';
-import SerieCard from '../Components/SerieCard';
-
 const Container = styled.div`
   display: column;
   margin: 0 auto;
@@ -44,52 +43,44 @@ const Title = styled.h2`
 }
 `;
 
-
-
-const movieURL = import.meta.env.VITE_API_SERIE;
+const movieURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-console.log(movieURL, apiKey);
+const Movies = () => {
+  const [moviestoprated, setmoviestoprated] = useState([]);
 
-const Serie = () => {
-
-  const[popularserie, setpopularSerie] = useState([]);
-
-
-  const getPopular = async (url) => {
+  const gettopRated = async (url) => {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setpopularSerie(data.results);
+      setmoviestoprated(data.results);
     } catch (error) {
-      console.error('Error fetching popular serie:', error);
+      console.error('Error fetching top rated movies:', error); // changed from popular to top rated
     }
   };
 
   useEffect(() => {
-    const popularUrl = `${movieURL}top_rated?api_key=${apiKey}&language=pt-BR`;
-    getPopular(popularUrl);
-  
-  },[]);
-  useEffect(() => {
-    const popularUrl = `${movieURL}top_rated?api_key=${apiKey}&language=pt-BR`;
-    const interval = setInterval(() => {
-      getPopular(popularUrl);
-    }, 60000); // Atualiza a cada 1 minuto
+    const topratedUrl = `${movieURL}top_rated?api_key=${apiKey}&language=pt-BR`;
+    gettopRated(topratedUrl);
+  }, []);
 
-    return () => clearInterval(interval);
-  }, []); 
+  useEffect(() => {
+    const topratedUrl = `${movieURL}top_rated?api_key=${apiKey}&language=pt-BR`;
+    const interval = setInterval(() => {
+      gettopRated(topratedUrl);
+    }, 60000);
+    return () => clearInterval(interval); // added cleanup function
+  }, []);
 
   return (
     <Container>
-      <Title>Series Bem Avaliadas</Title>
+      <Title>Filmes Bem Avaliados</Title>
       <MoviesContainer>
-        {popularserie.map((serie) => (
-          <SerieCard key={serie.id} serie={serie} />
-        ))}
+        {moviestoprated.length > 0 && // changed from popularMovies to moviestoprated
+          moviestoprated.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </MoviesContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default Serie
+export default Movies;

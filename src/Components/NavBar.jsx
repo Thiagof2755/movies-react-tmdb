@@ -55,12 +55,14 @@ const NavBar = () => {
                     <Logo />
                 </LinkStyled>
                 <Options>
+                    <LinkStyled to="/Movies/">Movies</LinkStyled>
                     <LinkStyled to="/movie/1">Movie</LinkStyled>
-                    <LinkStyled to="/series/1">Series</LinkStyled>
+                    <LinkStyled to="/serie/">Series</LinkStyled>
                 </Options>
                 <Search />
             </Navbar>
         </Nav>
+
     );
 };
 
