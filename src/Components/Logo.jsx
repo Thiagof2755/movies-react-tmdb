@@ -7,10 +7,10 @@ const StyledLogo = styled.div`
   display: inline-flex;
   align-items: center;
   margin-bottom: 0;
+  padiding-bottom: 0;
 
   @media (max-width: 768px) {
-    /* Ajuste o espaçamento ou tamanho da logo para telas menores */
-    margin-right: 10px;
+    padiding-bottom: 0;
   }
 `;
 
@@ -22,6 +22,8 @@ const CameraIcon = styled(FontAwesomeIcon)`
   @media (max-width: 768px) {
     /* Ajuste o tamanho do ícone para telas menores */
     font-size: 2rem;
+    padiding-bottom: 0;
+    margin-buttom: 0;
   }
 `;
 

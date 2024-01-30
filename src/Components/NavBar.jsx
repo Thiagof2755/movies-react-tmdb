@@ -42,7 +42,8 @@ const LinkStyled = styled(Link)`
 
     @media (max-width: 768px) {
         font-size: 0.8rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
+
     }
 `;
 
