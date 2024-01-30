@@ -1,17 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link , Outlet} from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from './Logo';
 import Search from './Search';
 
 const Nav = styled.nav`
     background-color: rgb(3, 37, 65);
+    height: 80px
 `;
 
 const Navbar = styled.div`
     margin: 0 auto;
     max-width: 1200px;
     width: 100%;
+
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,6 +25,7 @@ const Navbar = styled.div`
         max-width: 390px;
         width: 100%; 
         box-sizing: border-box
+    }
 `;
 
 const Options = styled.div`
@@ -42,8 +46,6 @@ const LinkStyled = styled(Link)`
     }
 `;
 
-
-
 const NavBar = () => {
     return (
         <Nav>
@@ -58,6 +60,7 @@ const NavBar = () => {
                 <Search />  
             </Navbar>
         </Nav>
+        
     );
 };
 
