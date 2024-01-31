@@ -10,6 +10,7 @@ import Serie from './pages/Serie.jsx'
 import Movies from './pages/Movies.jsx'
 
 
+
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
