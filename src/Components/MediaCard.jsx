@@ -55,7 +55,7 @@ const MediaCard = ({ media, type, showLink = true }) => {
       <MediaRating>
         <FaStar /> {media.vote_average}
       </MediaRating>
-      {showLink && <MediaLink to={`/${type}/${media.id}`}>Detalhes</MediaLink>}
+        {showLink && <MediaLink to={`/${type}/${media.id}`}>Detalhes</MediaLink>}
     </Card>
   );
 };

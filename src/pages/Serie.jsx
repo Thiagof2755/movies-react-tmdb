@@ -40,7 +40,7 @@ const Serie = () => {
     <Container>
       <Title>Series Bem Avaliadas</Title>
       <MoviesContainer>
-        {popularSeries.map((media) => <MediaCard key={media.id} media={media} type="movie" />)}
+        {popularSeries.map((media) => <MediaCard key={media.id} media={media} type="tv" />)}
       </MoviesContainer>
     </Container>
   );
