@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import MediaCard from '../../components/MediaCard';
 import styled, { keyframes } from "styled-components";
-import { containerStyles, moviesContainerStyles, titleStyles } from '../Components/MediaCardStyled'; 
+import { containerStyles, moviesContainerStyles, titleStyles } from '../Components/MediaCardStyled';
+import MediaCard from '../Components/MediaCard'; 
 
 const Container = styled.div`${containerStyles}`;
 const MoviesContainer = styled.div`${moviesContainerStyles}`;

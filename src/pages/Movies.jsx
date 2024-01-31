@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import MediaCard from '../../components/MediaCard';
 import styled from 'styled-components';
 import {containerStyles,moviesContainerStyles,titleStyles} from '../Components/MediaCardStyled'; 
+import MediaCard from '../Components/MediaCard';
 
 const Container = styled.div`${containerStyles}`;
 const MoviesContainer = styled.div`${moviesContainerStyles}`;

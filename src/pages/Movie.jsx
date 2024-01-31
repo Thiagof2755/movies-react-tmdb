@@ -1,4 +1,5 @@
 import React from 'react'
+import MediaCard from '../Components/MediaCard';
 
 const Movie = () => {
   return (
