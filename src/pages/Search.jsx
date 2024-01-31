@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import MediaCard from '../Components/MediaCard';
+import MediaCard from '../../components/MediaCard';
 import styled, { keyframes } from "styled-components";
 import { containerStyles, moviesContainerStyles, titleStyles } from '../Components/MediaCardStyled'; 
 
