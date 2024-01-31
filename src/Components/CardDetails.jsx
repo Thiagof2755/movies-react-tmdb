@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
-
 const Container = styled.div`
-display: column;
-margin: 0 auto;
-max-width: 1200px;
-width: 100%;
-box-sizing: border-box
-align-items: center;
-padding-bottom: 0;
+  
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 1200px;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 0;
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     margin: 0 auto;
     max-width: 390px;
-    width: 100%; 
-    box-sizing: border-box
+    width: 100%;
+    box-sizing: border-box;
     justify-content: center;
-};
+  }
 `;
 
 const Card = styled.div`
@@ -72,14 +73,17 @@ const MediaSinopse = styled.p`
 `;
 
 const Elenco = styled.div`
+  font-size: 20px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  box-sizing: border-box;
+
   h2 {
-    font-size: 20px;
     margin-bottom: 10px;
   }
 
   ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 20px;
 
     li {
@@ -103,75 +107,67 @@ const Elenco = styled.div`
   }
 `;
 
-
 const imageUrl = import.meta.env.VITE_IMG;
 const movieURL = import.meta.env.VITE_API;
 const tvURL = import.meta.env.VITE_API_SERIE;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-
-
 const CardDetails = ({ media, type, showLink = false }) => {
+  const [movie, setMovie] = useState(null);
+  const [tv, setTv] = useState(null);
 
-    const [movie, setMovie] = useState(null);
-    const [tv, setTv] = useState(null);
+  const getDetailsMovies = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    setMovie(data);
+    console.log(data);
+  };
 
-    const getDetailsMovies = async (url) => {
-        const res = await fetch(url);
-        const data = await res.json();
-        setMovie(data);
-        console.log(data);
+  const getDetailsTv = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    setTv(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    if (type === 'movie') {
+      const movieUrl = `${movieURL}${media.id}/credits?api_key=${apiKey}&language=pt-BR`;
+      getDetailsMovies(movieUrl);
+    } else {
+      const tvUrl = `${tvURL}${media.id}/credits?api_key=${apiKey}&language=pt-BR`;
+      getDetailsTv(tvUrl);
     }
+  }, []);
 
-    const getDetailsTv = async (url) => {
-        const res = await fetch(url);
-        const data = await res.json();
-        setTv(data);
-        console.log(data);
-    }
+  return (
+    <Container>
+      <Card>
+        <div>
+          <MediaImage src={imageUrl + media.poster_path} alt={media.title || media.name} />
+        </div>
+        <div>
+          <MediaTitle>{media.title || media.name}</MediaTitle>
+          <MediaSinopse>{media.overview}</MediaSinopse>
+          <MediaRating>
+            <FaStar /> {media.vote_average}
+          </MediaRating>
+          {showLink && <MediaLink to={`/${type}/${media.id}`}>Detalhes</MediaLink>}
+        </div>
+      </Card>
+      <Elenco>
+        <h2>Elenco</h2>
+        <ul>
+          {(movie?.cast || tv?.cast)?.slice(0, 15).map((cast) => (
+            <li key={cast.id}>
+              <img src={imageUrl + cast.profile_path} alt={cast.name} />
+              <p>{cast.name}</p>
+            </li>
+          ))}
+        </ul>
+      </Elenco>
+    </Container>
+  );
+};
 
-    useEffect(() => {
-
-        if (type === "movie") {
-            const movieUrl = `${movieURL}${media.id}/credits?api_key=${apiKey}&language=pt-BR`;
-            getDetailsMovies(movieUrl);
-        } else {
-            const tvUrl = `${tvURL}${media.id}/credits?api_key=${apiKey}&language=pt-BR`;
-            getDetailsTv(tvUrl);
-        }
-    }, []);
-
-    return (
-        <Container>
-            <Card>
-                <div>
-                    <MediaImage src={imageUrl + media.poster_path} alt={media.title || media.name} />
-                </div>
-                <div>
-                    <MediaTitle>{media.title || media.name}</MediaTitle>
-                    <MediaSinopse>{media.overview}</MediaSinopse>
-                    <MediaRating>
-                        <FaStar /> {media.vote_average}
-                    </MediaRating>
-                    {showLink && <MediaLink to={`/${type}/${media.id}`}>Detalhes</MediaLink>}
-                </div>
-            </Card>
-            <Elenco>
-                <h2>Elenco</h2>
-<ul>
-    {(movie?.cast || tv?.cast)?.slice(0, 15).map((cast) => (
-        <li key={cast.id}>
-            <img src={imageUrl + cast.profile_path} alt={cast.name} />
-            <p>{cast.name}</p>
-        </li>
-    ))}
-</ul>
-            </Elenco>
-        </Container>
-
-
-
-    )
-}
-
-export default CardDetails
+export default CardDetails;
