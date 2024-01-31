@@ -55,8 +55,7 @@ const NavBar = () => {
                     <Logo />
                 </LinkStyled>
                 <Options>
-                    <LinkStyled to="/Movies/">Movies</LinkStyled>
-                    <LinkStyled to="/movie/1">Movie</LinkStyled>
+                    <LinkStyled to="/Movies/">Filmes</LinkStyled>
                     <LinkStyled to="/serie/">Series</LinkStyled>
                 </Options>
                 <Search />

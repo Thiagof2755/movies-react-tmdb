@@ -1,49 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import  MovieCard  from '../Components/MovieCard'; // Add missing import statement
+import MediaCard from '../Components/MediaCard';
 import styled from 'styled-components';
+import { containerStyles, moviesContainerStyles, titleStyles } from '../Components/MediaCardStyled'; 
 
-const Container = styled.div`
-  display: column;
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
-  box-sizing: border-box
-  align-items: center;
-  padding-bottom: 0;
-
-  @media (max-width: 768px) {
-      margin: 0 auto;
-      max-width: 390px;
-      width: 100%; 
-      box-sizing: border-box
-      justify-content: center;
-  }
-`;
-
-const MoviesContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  justify-content: center;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-  }
-`;
-
-const Title = styled.h2`
-@media (max-width: 768px) {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  text-align: left;
-  margin-left: 2rem;
-
-  font-size: 1rem;
-  
-}
-`;
-
+const Container = styled.div`${containerStyles}`;
+const MoviesContainer = styled.div`${moviesContainerStyles}`;
+const Title = styled.h2`${titleStyles}`;
 
 const movieURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -80,7 +42,7 @@ const Home = () => {
       <Title>Filmes Populares</Title>
       <MoviesContainer>
         {popularMovies.length > 0 &&
-          popularMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+          popularMovies.map((media) => <MediaCard key={media.id} media={media} type="movie" />)}
       </MoviesContainer>
     </Container>
   );

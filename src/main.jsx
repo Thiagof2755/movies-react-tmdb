@@ -20,7 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Home />} />
           <Route path="Movies" element={<Movies />} />
           <Route path="movie/:id" element={<Movie />} />
-
           <Route path="serie" element={<Serie />} />
           <Route path="search" element={<Search />} />
         </Route>
