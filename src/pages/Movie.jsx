@@ -16,12 +16,10 @@ const Background = styled.div`
   filter: saturate(0%);
   filter: blur(2px);
   filter: grayscale(100%); 
-  mask-image: linear-gradient(to bottom, transparent, black); // Gradiente linear para a parte de cima desaparecer
-  mask-size: 100% 100%; // Ajuste a altura da máscara conforme necessário
-  mask-position: center; // Centraliza a máscara verticalmente
-  mask-repeat: no-repeat;
+  mask-image: linear-gradient(180deg, transparent 2%, black 25%, black 75%, transparent 98%); 
   height: 100%;
   width: 100%;
+  
 `;
 
 const Page = ({ backgroundImage, children }) => (

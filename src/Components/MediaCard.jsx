@@ -4,13 +4,14 @@ import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
 
 const Card = styled.div`
+  background-color: #242424;
   width: 200px;
-  border: 1px solid #ddd;
   border-radius: 10px;
   margin: 15px;
   padding: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(1, 1, 1, 1);
   transition: all 0.3s ease;
+
 
   @media (max-width: 600px) {
     width: 140px;
@@ -48,6 +49,8 @@ const MediaLink = styled(Link)`
 const imageUrl = import.meta.env.VITE_IMG;
 
 const MediaCard = ({ media, type, showLink = true }) => {
+
+  
   return (
     <Card>
       <MediaImage src={imageUrl + media.poster_path} alt={media.title || media.name} />
@@ -56,6 +59,7 @@ const MediaCard = ({ media, type, showLink = true }) => {
         <FaStar /> {media.vote_average}
       </MediaRating>
         {showLink && <MediaLink to={`/${type}/${media.id}`}>Detalhes</MediaLink>}
+
     </Card>
   );
 };
