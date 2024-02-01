@@ -14,8 +14,9 @@ const Card = styled.div`
 
 
   @media (max-width: 600px) {
-    width: 140px;
-    margin: 10px auto;
+    width: 130px;
+    height: auto;
+    margin: 0 auto;
   }
 
   &:hover {
@@ -28,22 +29,39 @@ const MediaImage = styled.img`
   width: 100%;
   height: auto;
   border-radius: 10px;
+  @media (max-width: 600px) {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const MediaTitle = styled.h2`
   font-size: 1.2em;
   margin: 10px 0;
+  @media (max-width: 600px) {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const MediaRating = styled.p`
   color: #f4c10f;
   font-size: 1em;
+  @media (max-width: 600px) {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const MediaLink = styled(Link)`
   text-decoration: none;
   color: #ccc;
   font-weight: bold;
+  
+  @media (max-width: 600px) {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const imageUrl = import.meta.env.VITE_IMG;

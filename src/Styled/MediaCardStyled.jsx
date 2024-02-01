@@ -26,6 +26,7 @@ justify-content: center;
 @media (max-width: 768px) {
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
+  padding: 20px;
 }
 `;
 
