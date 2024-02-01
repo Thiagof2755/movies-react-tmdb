@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-Este projeto é uma biblioteca de filmes desenvolvida em React, fazendo uso da API destacada do The Movies Database. O seu propósito principal é fornecer uma experiência de aprendizado e aprimoramento na utilização de APIs.
+Este é um projeto de biblioteca de filmes desenvolvido em React, utilizando a API destacada do The Movies Database. Seu objetivo principal é proporcionar uma experiência de aprendizado e aprimoramento na utilização de APIs.
 
 ## Objetivos
 
@@ -29,12 +29,30 @@ Este projeto é uma biblioteca de filmes desenvolvida em React, fazendo uso da A
 - JavaScript
 - Styled Components (para estilização)
 
+
+## Demonstração
+
+Acesse o site [aqui](https://movies-react-tmdb.vercel.app/) para visualizar o aplicativo em funcionamento.
+
+### Telas do Aplicativo
+
+#### Tela de PC
+
+![Tela PC 1](./src/assets/tela_pc_1.png.png)
+![Tela PC 2](./src/assets/tela_pc_2.png.png)
+
+#### Tela de Mobile
+
+![Tela Mobile 1](./src/assets/tela_mobile_1.jpg)
+![Tela Mobile 2](./src/assets/tela_mobile_2.jpg)
+
+
 ## Como Executar o Projeto
 
-1. Clone este repositório.
-2. Instale as dependências usando o comando: `npm install`.
-3. Execute o projeto com: `npm start`.
-4. Acesse [http://localhost:5173](http://localhost:5173) no seu navegador.
+1. **Clone este repositório.**
+2. **Instale as dependências usando o comando:** `npm install`.
+3. **Execute o projeto com:** `npm start`.
+4. **Acesse [http://localhost:5173](http://localhost:5173) no seu navegador.**
 
 ## Contribuições
 
