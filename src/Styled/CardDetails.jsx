@@ -143,11 +143,11 @@ ul {
       flex-direction: column;
       max-width: 300px;
       box-sizing: border-box;
+      padding:0;
 
       h2 {
         margin : 0;
         box-sizing: border-box;
-        padding-left: 25px;
 
       }
       ul {
