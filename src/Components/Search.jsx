@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -46,41 +46,28 @@ const Input = styled.input`
 `;
 
 function Search() {
-  // Estado para armazenar o valor do input
-  const [query, setQuery] = useState("");
-
-  // Hook para navegar entre as páginas
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
-  // Função chamada ao alterar o valor do input
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  // Função chamada ao enviar o formulário
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    // Verifica se a consulta não está vazia
-    if (!query) return;
+    if (!search) return;
 
-    // Navega para a página de pesquisa com a query como parâmetro
-    navigate(`/search?q=${query}`);
-
-    // Limpa o valor do input após a submissão
-    setQuery("");
+    navigate(`/search?q=${search}`, { replace: true });
+    setSearch("");
   };
 
   // Renderiza o componente de busca
   return (
     <SearchContainer onSubmit={handleSubmit}>
-      <Button type="submit">
+      <Button type="submit" id="13">
         <Icon />
         <Input
           type="text"
-          placeholder="Busque pelo título"
-          value={query}
-          onChange={handleInputChange}
+          placeholder="Busque um filme"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
         />
       </Button>
     </SearchContainer>
