@@ -46,11 +46,15 @@ const Body = () => {
                 opacity: 0.2,
                 filter: 'saturate(0%) blur(2px) grayscale(100%)',
                 position: 'absolute',
-                '@media (max-width: 768px)': {
-                    position: 'absolute',
-                    maxWidth: '390px',
-                    height: '100vh',
+
+                
+                '@media (maxWidth: 768px)':{
+                    position: 'relative',
+                    maxWidth: '100%', // Ajuste para ocupar toda a largura disponível
+                    height: '50vh', // Ajuste conforme necessário
                     alignItems: 'center',
+                    opacity: 0,
+                    filter: 'saturate(0%) blur(2px) grayscale(20%)',
                 },
             }}
         ></div>
