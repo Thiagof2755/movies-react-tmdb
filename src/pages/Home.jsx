@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import MediaCard from '../Components/MediaCard';
-import { containerStyles, moviesContainerStyles, titleStyles } from '../Styled/MediaCardStyled'; 
+import { containerStyles, moviesContainerStyles, titleStyles, } from '../Styled/MediaCardStyled'; 
 
 const Container = styled.div`${containerStyles}`;
 const MoviesContainer = styled.div`${moviesContainerStyles}`;
 const Title = styled.h2`${titleStyles}`;
+
+
+
 
 const movieURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -38,6 +41,7 @@ const Home = () => {
   }, []);
 
   return (
+    
     <Container>
       <Title>Filmes Populares</Title>
       <MoviesContainer>
@@ -45,6 +49,7 @@ const Home = () => {
           popularMovies.map((media) => <MediaCard key={media.id} media={media} type="movie" />)}
       </MoviesContainer>
     </Container>
+  
   );
 };
 

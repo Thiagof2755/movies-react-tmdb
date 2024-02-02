@@ -1,14 +1,23 @@
-import './App.css'
-import { Link, Outlet } from 'react-router-dom'
-import NavBar from './Components/NavBar'
+import React from 'react';
+import './App.css';
+import { Link, Outlet } from 'react-router-dom';
+import NavBar from './Components/NavBar';
+import styled from 'styled-components';
+import Body from './Components/Body';
 
-function App() {
-  return (
-      <div className="App">
-        <NavBar />
-        <Outlet />
-      </div>
-  )
-}
 
-export default App
+
+
+const StyledApp = styled.div`
+
+`;
+
+const App = () => (
+  <StyledApp>
+    <NavBar />
+    <Body/>
+    <Outlet />
+  </StyledApp>
+);
+
+export default App;

@@ -9,6 +9,7 @@ export const ContainerStyled = `
   height: 100vh;
   box-sizing: border-box;
   padding-bottom: 0;
+  
 
   @media (max-width: 768px) {
     margin: 0 ;
