@@ -53,6 +53,7 @@ Acesse o site [aqui](https://movies-react-tmdb.vercel.app/) para visualizar o ap
 2. **Instale as dependências usando o comando:** `npm install`.
 3. **Execute o projeto com:** `npm start`.
 4. **Acesse [http://localhost:5173](http://localhost:5173) no seu navegador.**
+   
 
 ## Contribuições
 
